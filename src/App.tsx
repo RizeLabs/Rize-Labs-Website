@@ -6,7 +6,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/lander" element={<MainPage />} />
         </Routes>
       </Router>
     </div>
