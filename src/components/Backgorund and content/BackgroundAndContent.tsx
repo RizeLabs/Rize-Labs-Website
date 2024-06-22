@@ -1,7 +1,7 @@
 import { useMotionValue } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useMotionTemplate, motion } from "framer-motion";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 export const BackgroundAndContent = ({ className }: { className?: string }) => {
   let mouseX = useMotionValue(0);
@@ -18,6 +18,9 @@ export const BackgroundAndContent = ({ className }: { className?: string }) => {
     let { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
+
+    const str = generateRandomString(1500);
+    setRandomString(str.repeat(7));
   }
 
   return (
@@ -47,7 +50,7 @@ export const BackgroundAndContent = ({ className }: { className?: string }) => {
             </span>
           </div>
           <div className="relative h-44 w-auto flex items-center justify-center mt-5 m-auto">
-            <span className="text-shadow-lg font-bold text-red z-20 font-Lexend text-4xl">
+            <span className="font-bold text-white z-20 font-Lexend text-4xl">
               ENCRYPTING SOON...
             </span>
           </div>

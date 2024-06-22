@@ -7,7 +7,7 @@ module.exports = {
         Lexend: ["Lexend", "sans-serif"],
       },
       colors: {
-        Main_Colour: "#5024F",
+        Main_Colour: "#5024FF",
       },
       textShadow: {
         default: "2px 2px 4px rgba(0, 0, 0, 0.1)",
