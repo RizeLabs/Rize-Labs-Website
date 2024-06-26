@@ -61,7 +61,7 @@ export const BackgroundAndContent = ({ className }: { className?: string }) => {
         />
         <div className="relative z-10 flex-wrap items-center justify-center">
           <div className="relative m-auto h-44 w-60 md:w-80 flex items-center justify-center">
-            <div className="absolute  md:max-lg:w-[50vw] xl:w-[30vw] h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full" />
+            <div className="absolute max-sm:w-[80vw] sm:w-[80vw] md:w-[50vw] xl:w-[30vw] h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full" />
             <span className="dark:text-white z-20">
               <img
                 src="/assets/images/Logos/logo-white.png"
