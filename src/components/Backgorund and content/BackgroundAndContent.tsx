@@ -10,7 +10,7 @@ export const BackgroundAndContent = ({ className }: { className?: string }) => {
   const [randomString, setRandomString] = useState("");
 
   useEffect(() => {
-    let str = generateRandomString(20000);
+    let str = generateRandomString(10000);
     setRandomString(str);
   }, []);
 
@@ -54,7 +54,7 @@ export const BackgroundAndContent = ({ className }: { className?: string }) => {
               ENCRYPTING SOON...
             </span>
           </div>
-          <div className="relative h-12 w-12 m-auto mt-[25vh] rounded-full flex items-center justify-center text-white font-bold text-4xl">
+          <div className="relative h-12 w-12 m-auto mt-[23vh] rounded-full flex items-center justify-center text-white font-bold text-4xl">
             <div className="absolute w-full h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full" />
             <span className="z-20">
               <a
