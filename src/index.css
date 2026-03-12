@@ -1,24 +1,94 @@
+/* Import Instrument Serif (headlines) + Inter (body) + Space Mono (accents) */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Poppins from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
+/* Global defaults */
+html {
+  scroll-behavior: smooth;
+}
 
-/* Set global font to Poppins */
 html, body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   letter-spacing: 0;
-  color: #000;
+  color: #1a1a1a;
 }
 
 body {
-  background-color: #f9fafb;
+  background-color: #f2ede8;
 }
 
-/* Optional: Style outlines for accessibility */
+/* Focus styles */
 *:focus-visible {
-  outline: 2px dashed #84cc16;
+  outline: 2px solid #f97316;
   outline-offset: 2px;
+}
+
+/* Animated underline for links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #1a1a1a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Watermark text */
+.watermark {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.04);
+  color: transparent;
+}
+
+/* Keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orb-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(12px, -18px) scale(1.02);
+  }
+  66% {
+    transform: translate(-8px, 8px) scale(0.98);
+  }
+}
+
+@keyframes orb-drift-reverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-10px, 12px) scale(0.97);
+  }
+  66% {
+    transform: translate(14px, -10px) scale(1.03);
+  }
+}
+
+/* Serif heading utility */
+.font-serif-display {
+  font-family: 'Instrument Serif', Georgia, serif;
 }

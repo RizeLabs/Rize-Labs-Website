@@ -1,18 +1,35 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
 
-interface SketchButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+const buttonVariants = cva(
+  "font-medium text-sm px-7 py-3 rounded-full transition-all duration-300 ease-out inline-flex items-center cursor-pointer active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-black/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f2ede8]",
+  {
+    variants: {
+      variant: {
+        solid:
+          "bg-[#1a1a1a] text-white hover:bg-neutral-700 hover:-translate-y-0.5",
+        ghost:
+          "border border-neutral-300 text-[#1a1a1a] hover:border-neutral-500 hover:-translate-y-0.5",
+      },
+    },
+    defaultVariants: {
+      variant: "solid",
+    },
+  }
+);
+
+interface SketchButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   children: React.ReactNode;
   className?: string;
 }
 
-const SketchButton = ({ children, className, ...props }: SketchButtonProps) => (
+const SketchButton = ({ children, className, variant, ...props }: SketchButtonProps) => (
   <button
-    className={cn(
-      "font-medium text-base px-6 py-2 bg-lime-100 text-black rounded-full hover:bg-lime-200 transition-all inline-flex items-center",
-      className
-    )}
+    className={cn(buttonVariants({ variant }), className)}
     {...props}
   >
     {children}

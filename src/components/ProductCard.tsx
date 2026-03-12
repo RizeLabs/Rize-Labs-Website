@@ -5,28 +5,35 @@ import { ArrowRight } from "lucide-react";
 interface ProductCardProps {
   title: string;
   description: string;
+  tag?: string;
   onClick?: () => void;
   link?: string;
 }
 
-const ProductCard = ({ title, description, link }: ProductCardProps) => (
-  <div className="relative w-full h-full border border-lime-300 bg-white/5 rounded-md p-6 flex flex-col hover:bg-white/10 transition-all group">
-    <h3 className="text-2xl font-medium mb-2">{title}</h3>
-    <p className="text-sm text-gray-600 mb-6">{description}</p>
-    
-    {link && (
-      <a 
-        href={link} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="inline-flex items-center mt-auto"
-        aria-label={`Visit ${title}`}
-      >
-        <ArrowRight className="w-5 h-5 text-lime-500 transform transition-transform group-hover:translate-x-1" />
-      </a>
-    )}
-    <div className="absolute bottom-0 right-0 w-3 h-3 bg-lime-300"></div>
-  </div>
+const ProductCard = ({ title, description, tag, link }: ProductCardProps) => (
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block border-b border-neutral-300/50 py-10 transition-all duration-300 ease-out group"
+    aria-label={`Visit ${title}`}
+  >
+    <div className="flex items-start justify-between mb-4">
+      <h3 className="font-serif text-3xl md:text-4xl text-[#1a1a1a] group-hover:text-orange-600 transition-colors duration-300">
+        {title}
+      </h3>
+      {tag && (
+        <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-neutral-400 border border-neutral-300 rounded-full px-3 py-1 mt-2">
+          {tag}
+        </span>
+      )}
+    </div>
+    <p className="text-sm text-neutral-500 leading-relaxed mb-6 max-w-md">{description}</p>
+
+    <div className="inline-flex items-center gap-2">
+      <ArrowRight className="w-5 h-5 text-neutral-400 transform transition-all duration-300 group-hover:translate-x-2 group-hover:text-orange-600" />
+    </div>
+  </a>
 );
 
 export default ProductCard;
