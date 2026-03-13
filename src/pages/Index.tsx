@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight, ArrowUp } from "lucide-react";
+import { ArrowRight, ArrowUp, Cpu, Shield, Lock, Layers } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
@@ -10,27 +10,51 @@ import SketchButton from "@/components/SketchButton";
 const products = [
   {
     title: "Encifher",
-    description: "Programmable privacy engine for crypto — enabling confidential transactions and private smart contract execution.",
-    tag: "Privacy",
+    description: "Built a programmable privacy engine enabling confidential DeFi transactions — now live on mainnet.",
+    tag: "Privacy · FHE",
     link: "https://encifher.io",
   },
   {
     title: "Henosis",
-    description: "Avail Nexus's proof aggregation engine — unifying validity proofs across rollups into a single verification layer.",
-    tag: "ZK",
+    description: "Engineered Avail's proof aggregation system — collapsing multi-rollup validity proofs into single verification.",
+    tag: "ZK Proofs · Avail",
     link: "https://github.com/availproject/Henosis",
   },
   {
     title: "Aze",
-    description: "ZK-based fully on-chain and private poker on Miden — provably fair gameplay with hidden hand state.",
-    tag: "Gaming",
+    description: "Shipped fully on-chain poker on Miden with hidden-hand state — proving ZK can power real-time consumer apps.",
+    tag: "ZK Gaming · Miden",
     link: "https://x.com/aze_cards",
   },
   {
     title: "BananaHQ",
-    description: "Smart contract wallet infrastructure for dApps — seamless onboarding with account abstraction.",
-    tag: "Wallets",
+    description: "Created smart wallet infrastructure for dApps — seamless onboarding via account abstraction, no seed phrases.",
+    tag: "Wallets · AA",
     link: "https://github.com/RizeLabs",
+  },
+];
+
+// Service cards data
+const services = [
+  {
+    icon: Cpu,
+    title: "AI Agents & Automation",
+    description: "Custom ML pipelines and agentic workflows — from research prototype to production, reducing manual processes and unlocking new product capabilities.",
+  },
+  {
+    icon: Lock,
+    title: "Cryptography & Privacy",
+    description: "ZK proofs, FHE, and MPC systems engineered for real-world throughput — enabling confidential computation without sacrificing performance.",
+  },
+  {
+    icon: Shield,
+    title: "Security & Auditing",
+    description: "Threat modeling, protocol audits, and adversarial testing for teams shipping cryptographic or AI-heavy systems.",
+  },
+  {
+    icon: Layers,
+    title: "Product Engineering",
+    description: "End-to-end development from architecture to deployment — for teams that need engineers who understand both the research and the infra.",
   },
 ];
 
@@ -94,9 +118,9 @@ const GradientOrb = ({
 };
 
 const Index = () => {
-  const servicesReveal = useScrollReveal();
+  const whatWeDoReveal = useScrollReveal();
+  const aboutReveal = useScrollReveal();
   const portfolioReveal = useScrollReveal();
-  const partnerReveal = useScrollReveal();
 
   return (
     <div className="min-h-screen flex flex-col relative bg-[#f2ede8] overflow-x-hidden">
@@ -127,7 +151,7 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* ═══ HERO — Orb + overlapping headline ═══ */}
+      {/* ═══ HERO ═══ */}
       <section className="relative z-10 min-h-[85vh] flex items-center">
         {/* Watermark background text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -136,7 +160,7 @@ const Index = () => {
           </span>
         </div>
 
-        {/* Main orb — center-right like Meridian */}
+        {/* Main orb */}
         <div className="absolute top-1/2 left-1/2 -translate-x-[30%] -translate-y-1/2 pointer-events-none">
           <GradientOrb
             size="min(700px, 80vw)"
@@ -147,54 +171,132 @@ const Index = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
           <h1 className="font-serif text-[clamp(2.5rem,8vw,6rem)] leading-[1.05] text-[#1a1a1a] max-w-3xl">
-            We don't just research.
-            <br />
-            We{" "}
+            We build AI and cryptography systems that{" "}
             <em className="italic">ship.</em>
           </h1>
-        </div>
-      </section>
-
-      {/* ═══ BACKED BY ═══ */}
-      <section className="relative z-10 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="border-t border-neutral-300/50 pt-16">
-            <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-400">
-              Backed by
-            </span>
-
-            <div className="flex items-center justify-start gap-14 md:gap-24 flex-wrap mt-10">
-              <a href="https://alliance.xyz/" target="_blank" rel="noopener noreferrer" className="font-serif text-2xl md:text-3xl text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
-                Alliance
-              </a>
-              <a href="https://polygon.technology/blog/polygon-ventures-backing-the-bold" target="_blank" rel="noopener noreferrer" className="font-serif text-2xl md:text-3xl text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
-                Polygon
-              </a>
-              <a href="https://www.longhash.vc/accelerator/safe-cohort" target="_blank" rel="noopener noreferrer" className="font-serif text-2xl md:text-3xl text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
-                LongHashX
-              </a>
-              <a href="https://www.gnosis.io/ventures" target="_blank" rel="noopener noreferrer" className="font-serif text-2xl md:text-3xl text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
-                Gnosis
-              </a>
-              <span className="font-serif text-2xl md:text-3xl text-neutral-400">
-                &amp; others
-              </span>
-            </div>
-
-            <p className="text-sm text-neutral-500 leading-relaxed max-w-xl mt-10">
-              Over $1.1M raised to advance frontier research in cryptography, AI, and security.
-            </p>
+          <p className="text-lg md:text-xl text-neutral-500 max-w-2xl mt-6">
+            Rize Labs is a research-to-production studio. We help founders and protocol teams turn frontier research into deployed infrastructure.
+          </p>
+          <div className="flex items-center gap-4 mt-8">
+            <a href="#contact">
+              <SketchButton variant="solid">
+                Book a call <ArrowRight className="ml-2 w-4 h-4" />
+              </SketchButton>
+            </a>
+            <a href="#portfolio">
+              <SketchButton variant="ghost">
+                See our work
+              </SketchButton>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ═══ ABOUT — "Rize Labs is a research-driven..." ═══ */}
+      {/* ═══ TRUST STRIP ═══ */}
+      <section className="relative z-10 py-8 md:py-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="border-t border-neutral-300/50 pt-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
+            {/* Backed by */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-400 mr-2">
+                Backed by
+              </span>
+              <a href="https://alliance.xyz/" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                Alliance
+              </a>
+              <span className="text-neutral-300">·</span>
+              <a href="https://polygon.technology/blog/polygon-ventures-backing-the-bold" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                Polygon
+              </a>
+              <span className="text-neutral-300">·</span>
+              <a href="https://www.longhash.vc/accelerator/safe-cohort" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                LongHashX
+              </a>
+              <span className="text-neutral-300">·</span>
+              <a href="https://www.gnosis.io/ventures" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                Gnosis
+              </a>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden md:block w-px h-6 bg-neutral-300 mx-8" />
+
+            {/* Built for */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-400 mr-2">
+                Built for
+              </span>
+              <a href="https://www.polygon.technology" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                Polygon
+              </a>
+              <span className="text-neutral-300">·</span>
+              <a href="https://www.availproject.org/" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                Avail DA
+              </a>
+              <span className="text-neutral-300">·</span>
+              <a href="https://world.org/" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                Worldcoin
+              </a>
+              <span className="text-neutral-300">·</span>
+              <a href="https://miden.xyz/" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
+                Miden
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ WHAT WE DO — Service Cards ═══ */}
       <section
-        id="services"
-        className="relative z-10 scroll-mt-20 bg-[#1a1a1a] py-32 md:py-48 overflow-hidden"
-        ref={servicesReveal.ref}
+        className="relative z-10 py-24 md:py-32"
+        ref={whatWeDoReveal.ref}
       >
-        {/* Orb — pushed to right so it doesn't overlap the headline */}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="border-t border-neutral-300/50 pt-10 mb-12">
+            <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-400">
+              What we do
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {services.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={service.title}
+                  className={`transition-all ${
+                    whatWeDoReveal.isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-6"
+                  }`}
+                  style={{
+                    transitionDelay: whatWeDoReveal.isVisible
+                      ? `${i * 100}ms`
+                      : "0ms",
+                    transitionDuration: "700ms",
+                  }}
+                >
+                  <Icon className="w-6 h-6 text-neutral-400 mb-4" strokeWidth={1.5} />
+                  <h3 className="font-serif text-2xl md:text-3xl text-[#1a1a1a] mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-neutral-500 leading-relaxed max-w-md">
+                    {service.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ ABOUT — Dark Section ═══ */}
+      <section
+        id="about"
+        className="relative z-10 scroll-mt-20 bg-[#1a1a1a] py-32 md:py-48 overflow-hidden"
+        ref={aboutReveal.ref}
+      >
+        {/* Orb */}
         <div className="absolute top-1/2 right-0 translate-x-[10%] -translate-y-1/2 pointer-events-none">
           <GradientOrb
             size="500px"
@@ -209,7 +311,7 @@ const Index = () => {
             <div className="lg:w-[55%]">
               <h2
                 className={`font-serif text-2xl md:text-3xl lg:text-4xl leading-[1.3] text-white transition-all duration-700 ${
-                  servicesReveal.isVisible
+                  aboutReveal.isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
                 }`}
@@ -222,76 +324,30 @@ const Index = () => {
 
             {/* Right: Body text */}
             <div className="lg:w-[45%] flex items-center">
-              <div
-                className={`text-sm text-neutral-400 leading-relaxed space-y-4 transition-all duration-700 delay-200 ${
-                  servicesReveal.isVisible
+              <p
+                className={`text-sm text-neutral-400 leading-relaxed transition-all duration-700 delay-200 ${
+                  aboutReveal.isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
                 }`}
               >
-                <p>
-                  The gap between a breakthrough paper and production
-                  infrastructure is where most teams stall. We exist to close
-                  that gap.
-                </p>
-                <p>
-                  From custom ML pipelines and autonomous agents to
-                  zero-knowledge proof systems and privacy-preserving
-                  protocols — we turn frontier research in ZK, FHE, and AI
-                  into systems that ship, scale, and survive adversarial
-                  conditions.
-                </p>
-              </div>
+                Every system we build starts as a research question. We go deep on the math, the cryptography, the model architecture — then we engineer it into infrastructure that runs in production under adversarial conditions.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ TRUSTED BY — Companies we've worked with ═══ */}
-      <section
-        className="relative z-10 pt-12 pb-6 overflow-hidden"
-        ref={partnerReveal.ref}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="border-t border-neutral-300/50 pt-10 mb-6">
-            <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-400">
-              Trusted by
-            </span>
-          </div>
-
-          <div
-            className={`flex items-center justify-start gap-16 md:gap-28 flex-wrap transition-all duration-700 ${
-              partnerReveal.isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
-            }`}
-          >
-            <a href="https://www.polygon.technology" target="_blank" rel="noopener noreferrer" className="font-serif text-3xl md:text-4xl text-[#1a1a1a] hover:opacity-60 transition-opacity duration-300">
-              Polygon
-            </a>
-            <a href="https://www.availproject.org/" target="_blank" rel="noopener noreferrer" className="font-serif text-3xl md:text-4xl text-[#1a1a1a] hover:opacity-60 transition-opacity duration-300">
-              Avail DA
-            </a>
-            <a href="https://world.org/" target="_blank" rel="noopener noreferrer" className="font-serif text-3xl md:text-4xl text-[#1a1a1a] hover:opacity-60 transition-opacity duration-300">
-              Worldcoin
-            </a>
-            <a href="https://miden.xyz/" target="_blank" rel="noopener noreferrer" className="font-serif text-3xl md:text-4xl text-[#1a1a1a] hover:opacity-60 transition-opacity duration-300">
-              Miden
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ PORTFOLIO ═══ */}
+      {/* ═══ WHAT WE'VE BUILT ═══ */}
       <section
         id="portfolio"
-        className="relative z-10 scroll-mt-20 pt-12 pb-24 md:pb-32"
+        className="relative z-10 scroll-mt-20 pt-24 pb-24 md:pb-32"
         ref={portfolioReveal.ref}
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="border-t border-neutral-300/50 pt-10 mb-8">
             <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-400">
-              Portfolio
+              What we've built
             </span>
           </div>
 
@@ -374,15 +430,17 @@ const Index = () => {
               </form>
             </div>
 
-            {/* Right: Large serif text */}
+            {/* Right: Commercial CTA */}
             <div className="md:w-1/2 flex items-center">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.15] text-[#1a1a1a]">
-                Let's build
-                <br />
-                something
-                <br />
-                <em className="italic">together.</em>
-              </h2>
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.15] text-[#1a1a1a]">
+                  Need AI or cryptography infrastructure{" "}
+                  <em className="italic">built?</em>
+                </h2>
+                <p className="text-sm text-neutral-500 leading-relaxed mt-6 max-w-md">
+                  We work with founders and protocol teams on engagements from focused audits to full product builds.
+                </p>
+              </div>
             </div>
           </div>
         </div>
