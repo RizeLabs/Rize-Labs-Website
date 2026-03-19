@@ -206,7 +206,7 @@ const Index = () => {
               </a>
               <span className="text-neutral-300">·</span>
               <a href="https://polygon.technology/blog/polygon-ventures-backing-the-bold" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
-                Polygon
+                Polygon Ventures
               </a>
               <span className="text-neutral-300">·</span>
               <a href="https://www.longhash.vc/accelerator/safe-cohort" target="_blank" rel="noopener noreferrer" className="font-serif text-base md:text-lg text-neutral-400 hover:text-[#1a1a1a] transition-colors duration-300">
